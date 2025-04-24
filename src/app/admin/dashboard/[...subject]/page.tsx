@@ -1,10 +1,10 @@
 import GetExamOnSubject from "@/components/features/get-exam-on-subject";
-import { Params } from "next/dist/shared/lib/router/utils/route-matcher";
 import DeleteSubjectButton from "./_components/delete-subject-button/delete-subject-button";
 import AddExamButton from "./_components/add-exam-button/add-exam-button";
 import UpdateSubject from "./_components/update-subject-button/update-subject";
+import { TSubjectParams } from "@/lib/types/components-props";
 
-export default function page({ params }: Params) {
+export default function page({ params }: TSubjectParams) {
   // Params
   const subjectTitle = params.subject[0];
   const id = params.subject[1];

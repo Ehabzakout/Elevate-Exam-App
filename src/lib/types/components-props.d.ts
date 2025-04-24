@@ -49,3 +49,5 @@ export type TAddQuestionForm = {
   onSubmit: SubmitHandler<TAddQuestion>;
   form: UseFormReturn<TAddQuestion>;
 };
+
+export type TSubjectParams = { params: { subject: string; id: string } };
