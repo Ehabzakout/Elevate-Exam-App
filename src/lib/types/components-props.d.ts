@@ -50,4 +50,4 @@ export type TAddQuestionForm = {
   form: UseFormReturn<TAddQuestion>;
 };
 
-export type TSubjectParams = { params: { subject: string; id: string } };
+export type TSubjectParams = { params: { subject: string[] } };
