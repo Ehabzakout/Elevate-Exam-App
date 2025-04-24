@@ -29,9 +29,8 @@ export default function ExamDialog({ children, ...dialogProps }: TExamDialog) {
         {!startQuiz ? (
           // If start quiz false show this content
 
-          <DialogContent showclose="show">
+          <DialogContent>
             <DialogHeader className="space-y-4">
-
               {/* quiz title */}
 
               <DialogTitle>{title}</DialogTitle>
@@ -58,7 +57,7 @@ export default function ExamDialog({ children, ...dialogProps }: TExamDialog) {
             </Button>
           </DialogContent>
         ) : (
-          // If startQuiz equal true fetch the exam and show exam 
+          // If startQuiz equal true fetch the exam and show exam
 
           <DialogContent>
             {/* If questions haven't get yet , show loading */}
