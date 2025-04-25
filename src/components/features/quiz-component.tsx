@@ -8,6 +8,7 @@ import AddQuestionButton from "../../app/admin/dashboard/all-exams/_components/a
 import getToken from "@/lib/actions/get-token";
 import { APIResponse } from "@/lib/types/api";
 import { TExam } from "@/lib/types/question";
+import { TQuizProps } from "@/lib/types/components-props";
 
 // Icons for quizzes
 export const icons = {
@@ -17,14 +18,11 @@ export const icons = {
   "React Quiz": react,
 };
 
-export default async function Quiz({
-  id,
-  admin,
-}: {
-  id: string;
-  admin?: boolean;
-}) {
+export default async function Quiz({ id, admin }: TQuizProps) {
+  // Get token
   const token = await getToken();
+
+  // fetch exam data
   const req = await fetch(`${process.env.BASIC_API}/exams/${id}`, {
     headers: { token },
     method: "GET",

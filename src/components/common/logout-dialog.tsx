@@ -12,8 +12,8 @@ export default function LogoutDialog() {
     title: "Are you sure you want to logout ?",
     description: "If you click accept, you won't see the subjects",
     action: async () => {
-      const logout = await logoutAction();
-      if (logout === "success") signOut();
+      await logoutAction();
+      signOut();
     },
   };
 

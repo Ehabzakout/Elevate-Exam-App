@@ -7,5 +7,9 @@ export default async function page({
 }) {
   const searchParam = searchParams["search-exam"];
 
-  return <GetAllExams searchParam={searchParam} />;
+  return (
+    <>
+      <GetAllExams searchParam={searchParam} />
+    </>
+  );
 }
