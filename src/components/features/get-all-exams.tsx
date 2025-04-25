@@ -1,11 +1,12 @@
 import getToken from "@/lib/actions/get-token";
 import { TExams } from "@/lib/types/exams";
-import React from "react";
+import React, { Suspense } from "react";
 import Quiz from "./quiz-component";
 import noExams from "@assets/images/noExams.webp";
 import Image from "next/image";
 import { TGetAllExams } from "@/lib/types/components-props";
 import { APIResponse } from "@/lib/types/api";
+import Loading from "../common/loading";
 
 // Get all exams component
 
@@ -49,25 +50,31 @@ export default async function GetAllExams({
       {!searchParam && (
         <h1 className="text-xl font-[500] capitalize">All Exams</h1>
       )}
+      <Suspense fallback={<Loading />}>
+        {!newData.length ? (
+          // If this subject doesn't have exams
 
-      {!newData.length ? (
-        // If this subject doesn't have exams
+          <div className="W-fit mx-auto gap-7 text-center">
+            <Image
+              src={noExams}
+              width={500}
+              alt="No Exams"
+              className="mx-auto"
+            />
+            <p className="mt-9 text-2xl">
+              Sorry,There are no exams in this topic.
+            </p>
+          </div>
+        ) : (
+          // If this subject have exams
 
-        <div className="W-fit mx-auto gap-7 text-center">
-          <Image src={noExams} width={500} alt="No Exams" className="mx-auto" />
-          <p className="mt-9 text-2xl">
-            Sorry,There are no exams in this topic.
-          </p>
-        </div>
-      ) : (
-        // If this subject have exams
-
-        <div className="flex flex-col gap-6">
-          {newData.map((exam) => (
-            <Quiz key={exam._id} id={exam._id} admin={admin} />
-          ))}
-        </div>
-      )}
+          <div className="flex flex-col gap-6">
+            {newData.map((exam) => (
+              <Quiz key={exam._id} id={exam._id} admin={admin} />
+            ))}
+          </div>
+        )}
+      </Suspense>
     </>
   );
 }

@@ -3,6 +3,8 @@ import { TAllSubject } from "@/lib/types/all-subjects";
 import { APIResponse } from "@/lib/types/api";
 import Image from "next/image";
 import Link from "next/link";
+import { Suspense } from "react";
+import Loading from "../common/loading";
 
 export default async function AllSubjects() {
   // Get  token
@@ -34,32 +36,33 @@ export default async function AllSubjects() {
         </div>
 
         {/*Generate subjects links  */}
+        <Suspense fallback={<Loading />}>
+          <div className="mx-auto flex flex-wrap justify-center gap-5">
+            {subjects &&
+              subjects.map((subject) => (
+                <Link
+                  href={`dashboard/${subject.name}/${subject._id}`}
+                  key={subject._id}
+                  className="relative w-fit overflow-hidden rounded-lg"
+                >
+                  <Image
+                    src={subject.icon}
+                    alt={"Quiz Image"}
+                    width={330}
+                    height={292}
+                  />
 
-        <div className="mx-auto flex flex-wrap justify-center gap-5">
-          {subjects &&
-            subjects.map((subject) => (
-              <Link
-                href={`dashboard/${subject.name}/${subject._id}`}
-                key={subject._id}
-                className="relative w-fit overflow-hidden rounded-lg"
-              >
-                <Image
-                  src={subject.icon}
-                  alt={"Quiz Image"}
-                  width={330}
-                  height={292}
-                />
-
-                {/* Subject info */}
-                <div className="absolute bottom-7 mx-7 rounded-lg bg-[#1935CA66] p-4 text-white">
-                  <h1 className="text-sm font-bold">{subject.name}</h1>
-                  <p className="text-xs">
-                    Voluptatem aut ut dignissimos blanditiis
-                  </p>
-                </div>
-              </Link>
-            ))}
-        </div>
+                  {/* Subject info */}
+                  <div className="absolute bottom-7 mx-7 rounded-lg bg-[#1935CA66] p-4 text-white">
+                    <h1 className="text-sm font-bold">{subject.name}</h1>
+                    <p className="text-xs">
+                      Voluptatem aut ut dignissimos blanditiis
+                    </p>
+                  </div>
+                </Link>
+              ))}
+          </div>
+        </Suspense>
       </div>
     </>
   );

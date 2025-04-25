@@ -51,3 +51,14 @@ export type TAddQuestionForm = {
 };
 
 export type TSubjectParams = { params: { subject: string[] } };
+
+export type TExamsOnSubjectProps = {
+  id: string;
+  subjectTitle: string;
+  admin?: boolean;
+};
+
+export type TQuizProps = {
+  id: string;
+  admin?: boolean;
+};
