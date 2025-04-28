@@ -1,6 +1,6 @@
 import { PropsWithChildren } from "react";
-import AuthMainPage from "./_components/auth-main-page";
-import Navbar from "./_components/navbar";
+import AuthMainPage from "../_components/auth-main-page";
+import Navbar from "../_components/navbar";
 import { Poppins } from "next/font/google";
 
 // using Poppins font in authentication page

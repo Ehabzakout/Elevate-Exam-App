@@ -5,6 +5,7 @@ import { TAddExam } from "@/lib/schema/add-exam-schema";
 
 export default async function addExamAction(data: TAddExam) {
   const token = await getToken();
+  if (!token) throw new Error("You are not logged in ");
   const req = await fetch(`${process.env.BASIC_API}/exams`, {
     method: "POST",
     headers: { token, content_type: "applection/json" },

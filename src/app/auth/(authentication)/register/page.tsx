@@ -1,8 +1,8 @@
 import React from "react";
 import { Metadata } from "next";
-import CreateForm from "../_components/create-form";
+import CreateForm from "../../_components/create-form";
 import { TFormInput } from "@/lib/types/form";
-import LoginOption from "../_components/login-option";
+import LoginOption from "../../_components/login-option";
 
 //page title
 export const metadata: Metadata = {
@@ -30,7 +30,7 @@ const description = {
 export default function page() {
   return (
     <>
-      <div className="ml-28 mt-8 max-w-md space-y-8">
+      <div className="ml-28 mt-8 max-w-md space-y-8 pb-20">
         <CreateForm
           title="Sign up"
           inputs={inputs}

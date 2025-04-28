@@ -7,7 +7,7 @@ export default function AuthMainPage() {
   return (
     <>
       <div
-        className={`min-h-screen rounded-r-[100px] bg-authBackground p-20 pr-36 shadow-[0_5px_100px_0_#0000001A]`}
+        className={`h-full min-h-screen rounded-r-[100px] bg-authBackground p-20 pr-36 shadow-[0_5px_100px_0_#0000001A]`}
       >
         {/*text */}
 

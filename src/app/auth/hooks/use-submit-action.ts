@@ -1,4 +1,6 @@
+import logoutAction from "@/lib/actions/logout-action";
 import { TSubmitAction } from "@/lib/types/submit-function";
+import { signOut } from "next-auth/react";
 import { useRouter } from "next/navigation";
 
 export default function useSubmitAction(submit: string) {
@@ -31,6 +33,25 @@ export default function useSubmitAction(submit: string) {
       apiUrl: "auth/signup",
       method: "POST",
       action: () => router.push("/auth/login"),
+    },
+
+    // Submit change password
+    "Change Password": {
+      apiUrl: "auth/changePassword",
+      method: "PATCH",
+      action: () => {
+        logoutAction();
+        signOut();
+      },
+    },
+
+    // Submit Update Profile
+    Update: {
+      apiUrl: "auth/editProfile",
+      method: "PUT",
+      action: () => {
+        router.push("/auth/user");
+      },
     },
   };
 

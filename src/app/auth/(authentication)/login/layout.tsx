@@ -1,5 +1,5 @@
 import React from "react";
-import LoginOption from "../_components/login-option";
+import LoginOption from "../../_components/login-option";
 
 export default function LoginLayout({
   children,

@@ -7,14 +7,16 @@ export async function addQuestion(
   data: Omit<TAddQuestion, "questionStyle"> & { subject: string; exam: string },
 ) {
   const token = await getToken();
-  const req = await fetch(`${process.env.BASIC_API}/questions`, {
-    method: "POST",
-    headers: {
-      token,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(data),
-  });
-  const response = await req.json();
-  return response;
+  if (token) {
+    const req = await fetch(`${process.env.BASIC_API}/questions`, {
+      method: "POST",
+      headers: {
+        token,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+    const response = await req.json();
+    return response;
+  }
 }

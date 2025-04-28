@@ -9,7 +9,7 @@ export default async function submitExam(data: {
   // Get token
 
   const token = await getToken();
-
+  if (!token) throw new Error("You are not logged in");
   // Request to check the exam
 
   const res = await fetch(`${process.env.BASIC_API}/questions/check`, {

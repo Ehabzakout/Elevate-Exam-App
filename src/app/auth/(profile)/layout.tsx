@@ -1,8 +1,7 @@
 import { PropsWithChildren } from "react";
-
-import SearchBar from "../../components/features/search-bar";
+import SearchBar from "@components/features/search-bar";
 import { Poppins } from "next/font/google";
-import AdminDashboardSidebar from "./_components/admin-dashboard-sidebar";
+import UserSideBar from "./_components/user-side-bar";
 import UserInfoMenu from "@/components/common/user-info-menu";
 
 const poppins = Poppins({
@@ -15,14 +14,15 @@ export default function Layout({ children }: PropsWithChildren) {
       <div
         className={`flex min-h-screen w-full gap-20 bg-[#FBF9F9] pl-8 pr-20 pt-10 ${poppins.className}`}
       >
-        <AdminDashboardSidebar />
+        <UserSideBar />
+
         <div className="flex w-full flex-col gap-10">
           <header>
-            <SearchBar admin={true}>
+            <SearchBar>
               <UserInfoMenu />
             </SearchBar>
           </header>
-          <main>{children}</main>
+          <main> {children}</main>
         </div>
       </div>
     </>

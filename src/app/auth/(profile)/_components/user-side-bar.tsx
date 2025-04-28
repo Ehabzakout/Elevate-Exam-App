@@ -7,30 +7,36 @@ import clsx from "clsx";
 
 // Icons and images
 import logo from "@assets/images/Final Logo 1.png";
-import { History } from "lucide-react";
-import { RiLayout2Fill } from "react-icons/ri";
 import LogoutDialog from "@/components/common/logout-dialog";
+import DeleteAccountDialog from "./delete-account-dialog";
 
 // likens for the sidebar
 const links = [
   {
     title: "Dashboard",
-    icon: <RiLayout2Fill className="h-full w-full" />,
     href: "/dashboard",
   },
-  { title: "Quiz History", icon: <History />, href: "/quiz-history" },
+  { title: "User Info", href: "/auth/user" },
+  { title: "Change Password", href: "/auth/user/change-password" },
+  { title: "Edit Profile", href: "/auth/user/edit-profile" },
 ];
 
-// sidebar component
-export default function DashboardSidebar() {
+export default function UserSideBar() {
   const pathname = usePathname();
 
   return (
     <>
       <aside className="flex flex-col gap-8 text-xl font-semibold leading-none text-[#696F79]">
         {/*  logo */}
-
-        <Image src={logo} alt="logo" width={151} height={29} className="mb-6" />
+        <Link href="/dashboard">
+          <Image
+            src={logo}
+            alt="logo"
+            width={151}
+            height={29}
+            className="mb-6"
+          />
+        </Link>
 
         {/* links in sidebar */}
 
@@ -39,28 +45,22 @@ export default function DashboardSidebar() {
             key={link.title}
             href={link.href}
             className={clsx(
-              "flex w-48 items-center gap-7 rounded-xl px-2 py-3",
+              "flex w-64 items-center gap-7 rounded-xl px-3 py-3",
               {
                 ["bg-primary text-white"]: pathname === link.href,
                 ["hover:bg-blue-100"]: pathname !== link.href,
               },
             )}
           >
-            {/* Link Icon */}
-
-            <span
-              className={clsx("h-6 w-6 text-primary", {
-                ["text-white"]: pathname === link.href,
-              })}
-            >
-              {link.icon}
-            </span>
-
             {/*Link title  */}
 
             {link.title}
           </Link>
         ))}
+
+        {/* Delete Account button */}
+
+        <DeleteAccountDialog />
 
         {/* Logout  */}
 

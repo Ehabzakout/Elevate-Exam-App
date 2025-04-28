@@ -1,5 +1,5 @@
 import React from "react";
-import CreateForm from "../../_components/create-form";
+import CreateForm from "../../../_components/create-form";
 import { TFormInput } from "@/lib/types/form";
 
 // form inputs

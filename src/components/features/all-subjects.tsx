@@ -10,7 +10,7 @@ export default async function AllSubjects() {
   // Get  token
 
   const token = await getToken();
-
+  if (!token) throw new Error("You are not logged in ");
   // Fetching all subjects
   const req = await fetch(`${process.env.Basic_API}/subjects`, {
     headers: {

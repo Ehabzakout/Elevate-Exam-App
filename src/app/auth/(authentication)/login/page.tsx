@@ -1,6 +1,6 @@
 import React from "react";
 import { Metadata } from "next";
-import CreateForm from "../_components/create-form";
+import CreateForm from "../../_components/create-form";
 import { TFormInput } from "@/lib/types/form";
 
 //page title

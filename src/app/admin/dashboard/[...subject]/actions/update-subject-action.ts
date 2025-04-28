@@ -7,6 +7,7 @@ import { revalidateTag } from "next/cache";
 // Add new subject action
 export default async function updateSubject(formData: FormData, id: string) {
   const token = await getToken();
+  if (!token) throw new Error("You are not logged in ");
   const req = await fetch(`${process.env.BASIC_API}/subjects/${id}`, {
     method: "PUT",
     headers: {

@@ -21,6 +21,7 @@ export const icons = {
 export default async function Quiz({ id, admin }: TQuizProps) {
   // Get token
   const token = await getToken();
+  if (!token) throw new Error("You are not logged in ");
 
   // fetch exam data
   const req = await fetch(`${process.env.BASIC_API}/exams/${id}`, {
