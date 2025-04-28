@@ -5,6 +5,7 @@ import Quiz from "./quiz-component";
 import { Suspense } from "react";
 import Loading from "../common/loading";
 import { TExamsOnSubjectProps } from "@/lib/types/components-props";
+import { TExams } from "@/lib/types/exams";
 
 export default async function GetExamOnSubject({
   id,
@@ -12,7 +13,7 @@ export default async function GetExamOnSubject({
   admin = false,
 }: TExamsOnSubjectProps) {
   // fetch exam on subject by server action
-  const data = await getExamsOnSubject(id);
+  const data = (await getExamsOnSubject(id)) as TExams;
 
   // Destruct response
   const { message, exams } = data;

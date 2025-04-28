@@ -3,6 +3,7 @@ import { PropsWithChildren } from "react";
 import SearchBar from "../../components/features/search-bar";
 import { Poppins } from "next/font/google";
 import AdminDashboardSidebar from "./_components/admin-dashboard-sidebar";
+import UserInfoMenu from "@/components/common/user-info-menu";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -17,7 +18,9 @@ export default function Layout({ children }: PropsWithChildren) {
         <AdminDashboardSidebar />
         <div className="flex w-full flex-col gap-10">
           <header>
-            <SearchBar admin={true} />
+            <SearchBar admin={true}>
+              <UserInfoMenu />
+            </SearchBar>
           </header>
           <main>{children}</main>
         </div>

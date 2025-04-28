@@ -5,6 +5,7 @@ import { revalidateTag } from "next/cache";
 
 export default async function deleteSubjectAction(id: string) {
   const token = await getToken();
+  if (!token) throw new Error("You are not logged in ");
   const req = await fetch(`${process.env.BASIC_API}/subjects/${id}`, {
     method: "DELETE",
     headers: { token },

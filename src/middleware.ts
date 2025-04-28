@@ -49,5 +49,5 @@ export default withAuth(
   },
 );
 export const config = {
-  matcher: [...protectedRoute, ...authRoute],
+  matcher: ["/dashboard", "/auth/user", "/auth/login", "/auth/register"],
 };

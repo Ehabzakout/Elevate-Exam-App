@@ -8,8 +8,8 @@ export default async function getExamsOnSubject(id: string) {
 
   const token = await getToken();
 
-  // if token or id undefiend
-  if (!token && !id) throw new Error("Un expected error");
+  // if token or id undefined
+  if (!token || !id) throw new Error("Un expected error");
 
   if (token) {
     // Fetch all exams on subject
