@@ -4,7 +4,7 @@ import logoutAction from "@/lib/actions/logout-action";
 import deleteMyAccount from "../../actions/delete-account-action";
 
 export default function DeleteAccountDialog() {
-  // Dialog props for logout function
+  // Dialog props for delete my account function
 
   const alertDialogProps = {
     accept: "Delete",
