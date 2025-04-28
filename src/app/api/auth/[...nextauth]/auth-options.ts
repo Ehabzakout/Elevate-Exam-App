@@ -51,7 +51,7 @@ export const authOptions: AuthOptions = {
     }),
     FacebookProvider({
       clientId: process.env.FACEBOOK_CLIENT_ID!,
-      clientSecret: process.env.FACEBOOKE_CLIENT_SECRET!,
+      clientSecret: process.env.FACEBOOK_CLIENT_SECRET!,
     }),
     TwitterProvider({
       clientId: process.env.TWITTER_CLIENT_ID!,

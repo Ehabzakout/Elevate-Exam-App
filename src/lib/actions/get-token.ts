@@ -12,5 +12,5 @@ export default async function getToken() {
     secret: process.env.NEXTAUTH_SECRET!,
   });
   if (token) return token.token;
-  else throw new Error("You are not logged in");
+  return null;
 }

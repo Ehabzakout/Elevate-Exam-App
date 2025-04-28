@@ -1,13 +1,17 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import { useSession } from "next-auth/react";
-import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
 import { IoSearchOutline } from "react-icons/io5";
 
 // Search bar component
-export default function SearchBar({ admin }: { admin?: boolean }) {
+export default function SearchBar({
+  admin,
+  children,
+}: {
+  admin?: boolean;
+  children: React.ReactNode;
+}) {
   // Hook
   const router = useRouter();
 
@@ -16,11 +20,6 @@ export default function SearchBar({ admin }: { admin?: boolean }) {
   //State
 
   const [searchValue, setSearchValue] = useState("");
-
-  //Get user data
-
-  const session = useSession();
-  const image = session?.data?.user?.image;
 
   // Submit search function
 
@@ -56,15 +55,9 @@ export default function SearchBar({ admin }: { admin?: boolean }) {
           Search Quiz
         </Button>
 
-        {/* User image */}
+        {/* User info menu bar */}
 
-        <div className="flex size-16 items-center justify-center overflow-hidden rounded-full bg-zinc-200 text-2xl font-semibold text-primary">
-          {session && image ? (
-            <Image src={image} alt="photo" height={64} width={64} />
-          ) : (
-            session?.data?.user?.firstName[0].toUpperCase()
-          )}
-        </div>
+        {children}
       </div>
     </>
   );
