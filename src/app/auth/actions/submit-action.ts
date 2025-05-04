@@ -1,4 +1,5 @@
 "use server";
+import getToken from "@/lib/actions/get-token";
 import axios, { isAxiosError } from "axios";
 
 export async function submitAction<T extends Record<string, string>>(
@@ -6,15 +7,28 @@ export async function submitAction<T extends Record<string, string>>(
   api: string,
   method: string,
 ) {
+  const token = await getToken();
+
   try {
-    const { data } = await axios.request({
-      url: `https://exam.elevateegy.com/api/v1/${api}`,
-      data: values,
-      method,
-    });
-    console.log(data);
-    if (data.message === "success" || data.status === "Success") {
-      return data;
+    if (token) {
+      const { data } = await axios.request({
+        url: `https://exam.elevateegy.com/api/v1/${api}`,
+        data: values,
+        method,
+        headers: { token },
+      });
+      if (data.message === "success" || data.status === "Success") {
+        return data;
+      }
+    } else {
+      const { data } = await axios.request({
+        url: `https://exam.elevateegy.com/api/v1/${api}`,
+        data: values,
+        method,
+      });
+      if (data.message === "success" || data.status === "Success") {
+        return data;
+      }
     }
   } catch (error) {
     if (isAxiosError(error)) {

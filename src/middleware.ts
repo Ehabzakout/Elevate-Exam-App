@@ -3,7 +3,7 @@ import { NextResponse, NextRequest } from "next/server";
 import withAuth from "next-auth/middleware";
 // Routes
 
-const protectedRoute = ["/dashboard"];
+const protectedRoute = ["/dashboard", "/auth/user"];
 const authRoute = ["/auth/login", "/auth/register"];
 
 export default withAuth(
@@ -49,5 +49,5 @@ export default withAuth(
   },
 );
 export const config = {
-  matcher: [...protectedRoute, ...authRoute],
+  matcher: ["/dashboard", "/auth/user", "/auth/login", "/auth/register"],
 };

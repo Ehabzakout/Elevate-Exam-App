@@ -66,12 +66,41 @@ export const registerSchema = z
     path: ["rePassword"],
   });
 
+// Change Password Schema
+const changePasswordSchema = z
+  .object({
+    oldPassword: z
+      .string()
+      .min(1, { message: "password should not be empty" })
+      .regex(regexRole, { message: "Wrong password" }),
+
+    password: z
+      .string()
+      .min(1, { message: "password should not be empty" })
+      .regex(regexRole, { message: "Wrong password" }),
+    rePassword: z.string().min(1, { message: "password should not be empty" }),
+  })
+  .refine((value) => value.rePassword === value.password, {
+    message: "Your confirm password does't match with new password",
+    path: ["rePassword"],
+  });
+
+// Update profile schema
+const updateProfileSchema = z.object({
+  lastName: z
+    .string()
+    .min(1, { message: "Your last name shouldn't be empty" })
+    .min(3, { message: "Your last name should be at least 3 characters" }),
+});
+
 const formsSchema = {
   loginSchema,
   forgotPasswordSchema,
   setPasswordSchema,
   verifySchema,
   registerSchema,
+  changePasswordSchema,
+  updateProfileSchema,
 };
 
 export default formsSchema;
