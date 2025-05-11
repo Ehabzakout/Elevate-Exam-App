@@ -1,6 +1,6 @@
 import { TExamQuestion } from "@/lib/types/question";
 import { TExamResults } from "@/lib/types/exam-results";
-import questionsSchema from "@/lib/schema/quesstions-schema";
+import questionsSchema from "@/lib/schema/questions-schema";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { useState } from "react";
 import { z } from "zod";

@@ -34,6 +34,10 @@ export default withAuth(
 
     if (!isAuth && isAdminRoute)
       return NextResponse.redirect(new URL("/auth/login", req.nextUrl.origin));
+    if (pathname === "/admin")
+      return NextResponse.redirect(
+        new URL("/admin/dashboard", req.nextUrl.origin),
+      );
 
     if (isAdmin && isAdminRoute) return NextResponse.next();
 
@@ -49,5 +53,12 @@ export default withAuth(
   },
 );
 export const config = {
-  matcher: ["/dashboard", "/auth/user", "/auth/login", "/auth/register"],
+  matcher: [
+    "/dashboard",
+    "/auth/user",
+    "/auth/login",
+    "/auth/register",
+    "/",
+    "/admin",
+  ],
 };
