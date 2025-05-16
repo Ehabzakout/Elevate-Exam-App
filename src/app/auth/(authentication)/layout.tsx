@@ -13,11 +13,11 @@ const poppins = Poppins({
 export default function Layout({ children }: PropsWithChildren) {
   return (
     <>
-      <div className={`flex ${poppins.className}`}>
+      <div className={`flex ${poppins.className} max-h-screen`}>
         <aside className="w-1/2">
           <AuthMainPage />
         </aside>
-        <main className="w-1/2">
+        <main className="w-1/2 overflow-auto">
           <Navbar />
           {children}
         </main>

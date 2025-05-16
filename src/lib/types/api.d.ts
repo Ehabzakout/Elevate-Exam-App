@@ -1,9 +1,9 @@
-type successfullResponse<T> = {
+type SuccessfullResponse<T> = {
   message: "success";
 } & T;
 
-type errorResponse<T> = {
+type ErrorResponse<T> = {
   message: string;
 } & T;
 
-export type APIResponse<T> = successfullResponse<T> | errorResponse<T>;
+export type APIResponse<T> = SuccessfullResponse<T> | ErrorResponse<T>;

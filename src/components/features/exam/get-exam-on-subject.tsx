@@ -1,11 +1,11 @@
-import getExamsOnSubject from "@/lib/actions/get-exams-on-subject";
 import Image from "next/image";
 import noExams from "@assets/images/noExams.webp";
 import Quiz from "./quiz-component";
 import { Suspense } from "react";
-import Loading from "../common/loading";
+import Loading from "../../common/loading";
 import { TExamsOnSubjectProps } from "@/lib/types/components-props";
 import { TExams } from "@/lib/types/exams";
+import { getExamsOnSubject } from "@/lib/apis/exam.api";
 
 export default async function GetExamOnSubject({
   id,

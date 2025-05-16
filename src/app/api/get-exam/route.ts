@@ -4,11 +4,9 @@ import { NextRequest, NextResponse } from "next/server";
 //Route handler to get questions on exam
 export async function GET(req: NextRequest) {
   // Get token
-
   const token = await getToken({ req });
 
   // Get search params
-
   const { searchParams } = new URL(req.url);
 
   // Get id from search param
@@ -16,10 +14,10 @@ export async function GET(req: NextRequest) {
 
   // Request to get questions
   const response = await fetch(
-    `https://exam.elevateegy.com/api/v1/questions?exam=${id}`,
+    `${process.env.BASIC_API}/questions?exam=${id}`,
     { headers: { token: token!.token } },
   );
   const examQuestions = await response.json();
 
-  return NextResponse.json(examQuestions);
+  return NextResponse.json(examQuestions, { status: response.status });
 }

@@ -4,6 +4,8 @@ import { signOut } from "next-auth/react";
 import { useRouter } from "next/navigation";
 
 export default function useSubmitAction(submit: string) {
+  // Grouping all of your logic in a single hook isn't a good practice.
+
   const router = useRouter();
   const submitFunction: TSubmitAction = {
     // Submit forgot password page

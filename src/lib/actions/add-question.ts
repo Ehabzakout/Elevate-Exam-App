@@ -1,7 +1,7 @@
 "use server";
 
 import { TAddQuestion } from "../schema/add-question-schema";
-import getToken from "./get-token";
+import getToken from "../utils/get-token";
 
 export async function addQuestion(
   data: Omit<TAddQuestion, "questionStyle"> & { subject: string; exam: string },

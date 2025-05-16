@@ -8,7 +8,7 @@ import clsx from "clsx";
 // Icons and images
 import logo from "@assets/images/Final Logo 1.png";
 import { RiLayout2Fill } from "react-icons/ri";
-import LogoutDialog from "@/components/common/logout-dialog";
+import LogoutDialog from "@/components/features/user/logout-dialog";
 import AddDiplomaButton from "./add-subject/add-diploma-button";
 
 // likns for the sidebar

@@ -20,9 +20,9 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import useCreateForm from "../hooks/use-create-form";
+import useCreateForm from "../_hooks/use-create-form";
 
-// Create form component
+// While it's a good pratice to make components reusable, making forms reusable is not a good practice since the code is likely to change based on the use case
 export default function CreateForm({
   title,
   inputs,
@@ -46,18 +46,14 @@ export default function CreateForm({
       )}
 
       {/*Form Title */}
-
       <h1 className="mb-8 text-2xl font-bold">{title}</h1>
 
       {/* Form  */}
-
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)}>
           {/* Generate requested inputs inside form */}
-
           {inputs.map((input, index) => (
             // input field
-
             <FormField
               defaultValue={""}
               key={input.name}
@@ -65,6 +61,7 @@ export default function CreateForm({
               name={input.name}
               render={({ field }) => (
                 <FormItem>
+                  {/* All form inputs must have a label for accessability, even as a hidden label */}
                   <FormControl>
                     <Input
                       {...field}
@@ -85,10 +82,9 @@ export default function CreateForm({
           ))}
 
           {/* Login problems */}
-
           {description && (
             <FormDescription
-              className={`ms-auto mt-4 w-fit cursor-pointer text-lg ${description.addStyling ? description.addStyling : ""}`}
+              className={`ms-auto mt-4 w-fit text-lg ${description.addStyling ? description.addStyling : ""}`}
             >
               <span>{description.text}</span>
               <span className="text-primary">

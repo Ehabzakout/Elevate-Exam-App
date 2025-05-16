@@ -1,14 +1,15 @@
 import { PropsWithChildren } from "react";
 
-import SearchBar from "../../components/features/search-bar";
+import SearchBar from "../../components/features/user/search-bar";
 import { Poppins } from "next/font/google";
 import AdminDashboardSidebar from "./_components/admin-dashboard-sidebar";
-import UserInfoMenu from "@/components/common/user-info-menu";
+import UserInfoMenu from "@/components/features/user/user-info-menu";
 
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["700", "500", "400"],
 });
+
 export default function Layout({ children }: PropsWithChildren) {
   return (
     <>

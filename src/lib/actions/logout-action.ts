@@ -1,14 +1,16 @@
+"use server";
+
 import { APIResponse } from "../types/api";
-import getToken from "./get-token";
+import getToken from "../utils/get-token";
 
 export default async function logoutAction() {
   const token = await getToken();
 
-  if (token) {
-    const req = await fetch("https://exam.elevateegy.com/api/v1/auth/logout", {
-      headers: { token },
-    });
-    const response: APIResponse<{ message: string }> = await req.json();
-    if (response.message === "success") return response.message;
-  }
+  const req = await fetch(`${process.env.BASIC_API}/auth/logout`, {
+    headers: { token: token || "" },
+  });
+
+  const response: APIResponse<{ message: string }> = await req.json();
+
+  return response.message; // Successful and error cases must return to be catched or thrown whenever needed
 }

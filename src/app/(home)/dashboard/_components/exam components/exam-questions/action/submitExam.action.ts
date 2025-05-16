@@ -1,6 +1,6 @@
 "use server";
 
-import getToken from "@/lib/actions/get-token";
+import getToken from "@/lib/utils/get-token";
 
 export default async function submitExam(data: {
   answers: { questionId: string; correct: string }[];

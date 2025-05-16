@@ -1,5 +1,5 @@
 "use server";
-import getToken from "@/lib/actions/get-token";
+import getToken from "@/lib/utils/get-token";
 import { TUpdateSubject } from "@/lib/types/all-subjects";
 import { APIResponse } from "@/lib/types/api";
 import { revalidateTag } from "next/cache";

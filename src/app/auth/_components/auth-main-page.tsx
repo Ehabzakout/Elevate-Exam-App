@@ -9,8 +9,7 @@ export default function AuthMainPage() {
       <div
         className={`h-full min-h-screen rounded-r-[100px] bg-authBackground p-20 pr-36 shadow-[0_5px_100px_0_#0000001A]`}
       >
-        {/*text */}
-
+        {/* Text */}
         <div className="mb-20">
           <h1 className="mb-2 flex flex-col text-5xl font-bold leading-[150%]">
             Welcome to
@@ -24,7 +23,6 @@ export default function AuthMainPage() {
         </div>
 
         {/* Image */}
-
         <div className="mb-20">
           <Image src={img} alt="photo" />
         </div>

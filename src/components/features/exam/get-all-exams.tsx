@@ -1,12 +1,12 @@
-import getToken from "@/lib/actions/get-token";
+import getToken from "@/lib/utils/get-token";
 import { TExams } from "@/lib/types/exams";
 import React, { Suspense } from "react";
-import Quiz from "./quiz-component";
 import noExams from "@assets/images/noExams.webp";
 import Image from "next/image";
 import { TGetAllExams } from "@/lib/types/components-props";
 import { APIResponse } from "@/lib/types/api";
-import Loading from "../common/loading";
+import Loading from "@/components/common/loading";
+import Quiz from "./quiz-component";
 
 // Get all exams component
 

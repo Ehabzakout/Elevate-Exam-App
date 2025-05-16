@@ -7,7 +7,7 @@ import clsx from "clsx";
 
 // Icons and images
 import logo from "@assets/images/Final Logo 1.png";
-import LogoutDialog from "@/components/common/logout-dialog";
+import LogoutDialog from "@/components/features/user/logout-dialog";
 import DeleteAccountDialog from "./delete-account-dialog";
 
 // likens for the sidebar

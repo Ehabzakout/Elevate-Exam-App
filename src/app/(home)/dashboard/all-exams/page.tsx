@@ -1,4 +1,4 @@
-import GetAllExams from "@/components/features/get-all-exams";
+import GetAllExams from "@/components/features/exam/get-all-exams";
 
 export default async function page({
   searchParams,
@@ -7,9 +7,5 @@ export default async function page({
 }) {
   const searchParam = searchParams["search-exam"];
 
-  return (
-    <>
-      <GetAllExams searchParam={searchParam} />
-    </>
-  );
+  return <GetAllExams searchParam={searchParam} />;
 }

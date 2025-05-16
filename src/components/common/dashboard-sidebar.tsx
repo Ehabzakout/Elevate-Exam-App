@@ -9,7 +9,7 @@ import clsx from "clsx";
 import logo from "@assets/images/Final Logo 1.png";
 import { History } from "lucide-react";
 import { RiLayout2Fill } from "react-icons/ri";
-import LogoutDialog from "@/components/common/logout-dialog";
+import LogoutDialog from "@/components/features/user/logout-dialog";
 
 // likens for the sidebar
 const links = [
@@ -26,53 +26,38 @@ export default function DashboardSidebar() {
   const pathname = usePathname();
 
   return (
-    <>
-      <aside className="flex flex-col gap-8 text-xl font-semibold leading-none text-[#696F79]">
-        {/*  logo */}
-        <Link href="/dashboard">
-          <Image
-            src={logo}
-            alt="logo"
-            width={151}
-            height={29}
-            className="mb-6"
-          />
-        </Link>
+    <aside className="flex flex-col gap-8 text-xl font-semibold leading-none text-[#696F79]">
+      {/*  logo */}
+      <Link href="/dashboard">
+        <Image src={logo} alt="logo" width={151} height={29} className="mb-6" />
+      </Link>
 
-        {/* links in sidebar */}
-
-        {links.map((link) => (
-          <Link
-            key={link.title}
-            href={link.href}
-            className={clsx(
-              "flex w-48 items-center gap-7 rounded-xl px-2 py-3",
-              {
-                ["bg-primary text-white"]: pathname === link.href,
-                ["hover:bg-blue-100"]: pathname !== link.href,
-              },
-            )}
+      {/* Navigation */}
+      {links.map((link) => (
+        <Link
+          key={link.title}
+          href={link.href}
+          className={clsx("flex w-48 items-center gap-7 rounded-xl px-2 py-3", {
+            ["bg-primary text-white"]: pathname === link.href,
+            ["hover:bg-blue-100"]: pathname !== link.href,
+          })}
+        >
+          {/* Icon */}
+          <span
+            className={clsx("h-6 w-6 text-primary", {
+              ["text-white"]: pathname === link.href,
+            })}
           >
-            {/* Link Icon */}
+            {link.icon}
+          </span>
 
-            <span
-              className={clsx("h-6 w-6 text-primary", {
-                ["text-white"]: pathname === link.href,
-              })}
-            >
-              {link.icon}
-            </span>
+          {/* Title  */}
+          {link.title}
+        </Link>
+      ))}
 
-            {/*Link title  */}
-
-            {link.title}
-          </Link>
-        ))}
-
-        {/* Logout  */}
-
-        <LogoutDialog />
-      </aside>
-    </>
+      {/* Logout */}
+      <LogoutDialog />
+    </aside>
   );
 }

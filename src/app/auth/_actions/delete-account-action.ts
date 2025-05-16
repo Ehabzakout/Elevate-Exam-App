@@ -1,15 +1,13 @@
 "use server";
 
-import getToken from "@/lib/actions/get-token";
+import getToken from "@/lib/utils/get-token";
 
 // Delete account action
 export default async function deleteMyAccount() {
   // Get token
-
   const token = await getToken();
 
   // if token exist execute action
-
   if (token) {
     const req = await fetch(`${process.env.BASIC_API}/auth/deleteMe`, {
       method: "DELETE",

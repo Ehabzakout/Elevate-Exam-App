@@ -23,25 +23,21 @@ export default function AlertDialogDemo({
   }
 
   return (
-    <>
-      <AlertDialog open={open}>
-        <AlertDialogTrigger onClick={dialogControl}>
-          {children}
-        </AlertDialogTrigger>
-        <AlertDialogContent>
-          <AlertDialogHeader>
-            {error && <p className="text-red-500">* {error}</p>}
-            <AlertDialogTitle>{title} </AlertDialogTitle>
-            <AlertDialogDescription>{description}</AlertDialogDescription>
-          </AlertDialogHeader>
-          <AlertDialogFooter>
-            <AlertDialogCancel onClick={dialogControl}>
-              Cancel
-            </AlertDialogCancel>
-            <AlertDialogAction onClick={action}>{accept}</AlertDialogAction>
-          </AlertDialogFooter>
-        </AlertDialogContent>
-      </AlertDialog>
-    </>
+    <AlertDialog open={open}>
+      <AlertDialogTrigger onClick={dialogControl}>
+        {children}
+      </AlertDialogTrigger>
+      <AlertDialogContent>
+        <AlertDialogHeader>
+          {error && <p className="text-red-500">* {error}</p>}
+          <AlertDialogTitle>{title} </AlertDialogTitle>
+          <AlertDialogDescription>{description}</AlertDialogDescription>
+        </AlertDialogHeader>
+        <AlertDialogFooter>
+          <AlertDialogCancel onClick={dialogControl}>Cancel</AlertDialogCancel>
+          <AlertDialogAction onClick={action}>{accept}</AlertDialogAction>
+        </AlertDialogFooter>
+      </AlertDialogContent>
+    </AlertDialog>
   );
 }

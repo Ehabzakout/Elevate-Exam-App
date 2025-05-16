@@ -7,7 +7,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import getToken from "@/lib/actions/get-token";
+import getToken from "@/lib/utils/get-token";
 
 import { FaUser } from "react-icons/fa6";
 export default async function UserDataTable() {
