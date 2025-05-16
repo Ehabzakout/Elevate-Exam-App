@@ -1,6 +1,6 @@
 "use server";
 
-import getToken from "@/lib/actions/get-token";
+import getToken from "@/lib/utils/get-token";
 import { revalidateTag } from "next/cache";
 
 export default async function deleteSubjectAction(id: string) {

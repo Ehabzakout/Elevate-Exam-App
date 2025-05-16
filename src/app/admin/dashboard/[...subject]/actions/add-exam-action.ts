@@ -1,6 +1,6 @@
 "use server";
 
-import getToken from "@/lib/actions/get-token";
+import getToken from "@/lib/utils/get-token";
 import { TAddExam } from "@/lib/schema/add-exam-schema";
 
 export default async function addExamAction(data: TAddExam) {

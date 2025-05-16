@@ -12,7 +12,7 @@ import { signIn } from "next-auth/react";
 
 // Import schema for all generated form
 import formsSchema from "@/lib/schema/auth-schema";
-import { submitAction } from "../actions/submit-action";
+import { submitAction } from "../_actions/submit-action";
 
 // hook to create form
 

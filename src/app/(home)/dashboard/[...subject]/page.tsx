@@ -1,4 +1,4 @@
-import GetExamOnSubject from "@/components/features/get-exam-on-subject";
+import GetExamOnSubject from "@/components/features/exam/get-exam-on-subject";
 import { TSubjectParams } from "@/lib/types/components-props";
 
 export default async function page({ params }: TSubjectParams) {

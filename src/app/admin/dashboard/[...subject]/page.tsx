@@ -1,4 +1,4 @@
-import GetExamOnSubject from "@/components/features/get-exam-on-subject";
+import GetExamOnSubject from "@/components/features/exam/get-exam-on-subject";
 import DeleteSubjectButton from "./_components/delete-subject-button/delete-subject-button";
 import AddExamButton from "./_components/add-exam-button/add-exam-button";
 import UpdateSubject from "./_components/update-subject-button/update-subject";

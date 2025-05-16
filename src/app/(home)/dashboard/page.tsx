@@ -1,5 +1,5 @@
-import AllSubjects from "@components/features/all-subjects";
-import UserSummary from "@components/features/user-summary";
+import AllSubjects from "@/components/features/subject/all-subjects";
+import UserSummary from "@/components/features/user/user-summary";
 
 // Home Page (dashboard)
 export default function page() {

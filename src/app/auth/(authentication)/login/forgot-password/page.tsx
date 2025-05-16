@@ -14,16 +14,12 @@ const description = {
 
 export default function page() {
   return (
-    <>
-      <>
-        <CreateForm
-          title="Forgot your password?"
-          inputs={inputs}
-          description={description}
-          submit="Send Code"
-          schema="forgotPasswordSchema"
-        />
-      </>
-    </>
+    <CreateForm
+      title="Forgot your password?"
+      inputs={inputs}
+      description={description}
+      submit="Send Code"
+      schema="forgotPasswordSchema"
+    />
   );
 }

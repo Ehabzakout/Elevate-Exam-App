@@ -1,7 +1,7 @@
 import * as React from "react";
 import { VscEye } from "react-icons/vsc";
 import { VscEyeClosed } from "react-icons/vsc";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils/cn";
 
 const Input = React.forwardRef<HTMLInputElement, React.ComponentProps<"input">>(
   ({ className, type, ...props }, ref) => {

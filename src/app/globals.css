@@ -79,6 +79,7 @@
   }
 }
 
+/* Creating custom classes is not preferred */
 .loader {
   transform: rotateZ(45deg);
   perspective: 1000px;

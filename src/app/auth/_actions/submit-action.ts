@@ -1,6 +1,10 @@
 "use server";
-import getToken from "@/lib/actions/get-token";
+
+import getToken from "@/lib/utils/get-token";
 import axios, { isAxiosError } from "axios";
+
+// Grouping all of your case-code in a single reusable utility is not a good practice in functional programming
+// + Please avoid using axios without a serious need for axios
 
 export async function submitAction<T extends Record<string, string>>(
   values: T,

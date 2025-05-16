@@ -34,6 +34,7 @@ export const authOptions: AuthOptions = {
         });
 
         const payload: APIResponse<User> = await response.json();
+
         if (payload.message !== "success") throw new Error(payload.message);
 
         return {
@@ -63,6 +64,13 @@ export const authOptions: AuthOptions = {
     //jwt
 
     jwt: ({ token, user, profile, account }) => {
+      /*
+        Since you have multiple method to sign-in, you should make sure to return a single shape of the user data for consistency,
+        and if you want to add more data returned from the provider, add a `providerData` property where you store it or something similar.
+        Your code will force you to create conditions and multiple cases when you display the user data, because your code makes the structure of the data
+        changes based on the provider which is not ideal. Essential data must remain the same like email and firstName.
+      */
+
       if (profile) {
         //Use Google provider to signin
 
