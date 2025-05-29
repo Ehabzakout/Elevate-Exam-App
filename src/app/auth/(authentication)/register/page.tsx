@@ -2,7 +2,6 @@ import React from "react";
 import { Metadata } from "next";
 import CreateForm from "../../_components/create-form";
 import { TFormInput } from "@/lib/types/form";
-import LoginOption from "../../_components/login-option";
 
 //page title
 export const metadata: Metadata = {
@@ -38,7 +37,6 @@ export default function page() {
           submit="Create Account"
           schema="registerSchema"
         />
-        <LoginOption />
       </div>
     </>
   );

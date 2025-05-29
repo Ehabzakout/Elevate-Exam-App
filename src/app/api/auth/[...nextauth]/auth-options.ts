@@ -4,11 +4,6 @@ import GoogleProvider from "next-auth/providers/google";
 import FacebookProvider from "next-auth/providers/facebook";
 import TwitterProvider from "next-auth/providers/twitter";
 import { APIResponse } from "@/lib/types/api";
-import {
-  facebookProfile,
-  googleProfile,
-  twitterProfile,
-} from "@/lib/types/next-auth";
 
 export const authOptions: AuthOptions = {
   pages: {
@@ -62,47 +57,47 @@ export const authOptions: AuthOptions = {
   callbacks: {
     //jwt
 
-    jwt: ({ token, user, profile, account }) => {
-      if (profile) {
-        //Use Google provider to signin
+    jwt: ({ token, user }) => {
+      // if (profile) {
+      //   //Use Google provider to signin
 
-        if (account?.provider === "google") {
-          const googleProfile = profile as googleProfile;
-          token.google = {
-            email: googleProfile.email || "",
-            name: googleProfile.name || "",
-            image: googleProfile.picture || "",
-            given_name: googleProfile.given_name || "",
-            family_name: googleProfile.family_name || "",
-            iat: googleProfile.iat,
-            exp: googleProfile.exp,
-          };
-        }
+      //   if (account?.provider === "google") {
+      //     const googleProfile = profile as googleProfile;
+      //     token.google = {
+      //       email: googleProfile.email || "",
+      //       name: googleProfile.name || "",
+      //       image: googleProfile.picture || "",
+      //       given_name: googleProfile.given_name || "",
+      //       family_name: googleProfile.family_name || "",
+      //       iat: googleProfile.iat,
+      //       exp: googleProfile.exp,
+      //     };
+      //   }
 
-        // Use Facebook provider to signin
-        if (account?.provider === "facebook") {
-          const facebookProfile = profile as facebookProfile;
-          token.facebook = {
-            id: facebookProfile.id || "",
-            name: facebookProfile.name || "",
-            email: facebookProfile.email || "",
-            image: facebookProfile.picture.data.url || "",
-          };
-        }
-      }
+      //   // Use Facebook provider to signin
+      //   if (account?.provider === "facebook") {
+      //     const facebookProfile = profile as facebookProfile;
+      //     token.facebook = {
+      //       id: facebookProfile.id || "",
+      //       name: facebookProfile.name || "",
+      //       email: facebookProfile.email || "",
+      //       image: facebookProfile.picture.data.url || "",
+      //     };
+      //   }
+      // }
 
-      //Use Twitter Provider to signin
-      if (account?.provider === "twitter") {
-        const twitterProfile = profile as twitterProfile;
-        token.twitter = {
-          id: twitterProfile.id,
-          name: twitterProfile.name,
-          image: twitterProfile.profile_image_url,
-        };
-      }
+      // //Use Twitter Provider to signin
+      // if (account?.provider === "twitter") {
+      //   const twitterProfile = profile as twitterProfile;
+      //   token.twitter = {
+      //     id: twitterProfile.id,
+      //     name: twitterProfile.name,
+      //     image: twitterProfile.profile_image_url,
+      //   };
+      // }
 
       // Use Credential to signin
-      else if (user) {
+      if (user) {
         token.token = user.token;
         token.user = user.user;
       }
@@ -112,8 +107,7 @@ export const authOptions: AuthOptions = {
     //session
 
     session: ({ session, token }) => {
-      session.user =
-        token.user || token.google || token.facebook || token.twitter;
+      session.user = token.user;
 
       return session;
     },
